@@ -91,7 +91,7 @@ exports.updateTaskCompletion = async (req, res) => {
 
         await taskModel.updateOne(
             { _id: taskId },
-            { $addToSet: { completedBy: userId } } // avoids duplicates
+            { $addToSet: { completedBy: userId } } 
         )
 
         await userModel.updateOne({_id:userId},{$inc:{completedTask:1}})
