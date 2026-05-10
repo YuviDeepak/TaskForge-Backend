@@ -137,8 +137,9 @@ exports.mostAndLeastTask = async (req, res) => {
 
             mostCompletedTask,
 
-            leastCompletedTask
+            leastCompletedTask,
 
+            sortedTasks
         });
 
     } catch (err) {
