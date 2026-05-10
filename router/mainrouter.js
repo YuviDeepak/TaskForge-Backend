@@ -9,13 +9,13 @@ const { loginUser } = require('../controller/loginController.js')
 
 //tasks
 
-const { createTasks, getUserTasks,updateTaskassignedGroups,updateTaskCompletion } = require('../controller/taskController.js')
+const { createTasks, getUserTasks,updateTaskassignedGroups,updateTaskCompletion,mostAndLeastTask } = require('../controller/taskController.js')
 
 router.post("/tasks", createTasks)
 router.get("/tasks/user/:userId", getUserTasks)
 router.put("/tasks/:taskId",updateTaskassignedGroups)
 router.put("/tasks/usercompletion/:taskId",updateTaskCompletion)
-router.get("/tasks/task/userId")
+router.get("/tasks/task/userId",mostAndLeastTask)
 
 
 // router.post("/task", createTasks)                    
