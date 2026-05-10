@@ -108,3 +108,47 @@ exports.updateTaskCompletion = async (req, res) => {
         })
     }
 }
+
+exports.mostAndLeastTask = async (req, res) => {
+
+    try {
+
+        let userId=req.params.userId
+
+        const tasks = await taskModel.find({createdBy:userId});
+
+        const sortedTasks = tasks.sort((a, b) => {
+
+            return (
+                (b.completedBy?.length || 0) -
+                (a.completedBy?.length || 0)
+            );
+
+        });
+
+        const mostCompletedTask = sortedTasks[0];
+
+        const leastCompletedTask =
+            sortedTasks[sortedTasks.length - 1];
+
+        res.status(200).send({
+
+            status: true,
+
+            mostCompletedTask,
+
+            leastCompletedTask
+
+        });
+
+    } catch (err) {
+
+        res.status(500).json({
+
+            status: false,
+            message: "Not fetched"
+
+        });
+
+    }
+};

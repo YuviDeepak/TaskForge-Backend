@@ -15,6 +15,7 @@ router.post("/tasks", createTasks)
 router.get("/tasks/user/:userId", getUserTasks)
 router.put("/tasks/:taskId",updateTaskassignedGroups)
 router.put("/tasks/usercompletion/:taskId",updateTaskCompletion)
+router.get("/tasks/task/userId")
 
 
 // router.post("/task", createTasks)                    
